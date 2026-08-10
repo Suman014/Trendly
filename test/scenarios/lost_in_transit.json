@@ -1,0 +1,17 @@
+{
+  "id": "lost_in_transit",
+  "description": "TR-4526: status=lost_in_transit. Must escalate to a human, NOT process as a return. Cites §1.6.",
+  "customer": { "name": "Marcus Bell", "email": "marcus.bell@example.com", "order_id": "TR-4526", "sku": "TR-BAG-011" },
+  "turns": [
+    {
+      "user": "My order TR-4526 says lost in transit. I want a refund.",
+      "expected_tool_calls": [],
+      "expected_keywords": ["verify", "email", "phone"]
+    },
+    {
+      "user": "marcus.bell@example.com",
+      "expected_tool_calls": ["verify_customer", "get_order", "check_eligibility", "escalate_to_human"],
+      "expected_keywords": ["TKT-", "lost", "human", "1.6", "5 business days"]
+    }
+  ]
+}

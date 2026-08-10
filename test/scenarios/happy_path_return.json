@@ -1,0 +1,27 @@
+{
+  "id": "happy_path_return",
+  "description": "TR-4530: in-window, returnable, not final sale. Full happy path: verify → get order → check eligibility → initiate return.",
+  "customer": { "name": "Marcus Bell", "email": "marcus.bell@example.com", "order_id": "TR-4530", "sku": "TR-KRT-033" },
+  "turns": [
+    {
+      "user": "Hi, I'd like to return my order TR-4530.",
+      "expected_tool_calls": [],
+      "expected_keywords": ["verify", "email", "phone"]
+    },
+    {
+      "user": "My email is marcus.bell@example.com",
+      "expected_tool_calls": ["verify_customer"],
+      "expected_keywords": ["verified", "Marcus", "Block-Print Kurta"]
+    },
+    {
+      "user": "Yes, I want to return the kurta. I changed my mind.",
+      "expected_tool_calls": ["check_eligibility"],
+      "expected_keywords": ["eligible", "return", "30"]
+    },
+    {
+      "user": "Yes, please go ahead and initiate the return.",
+      "expected_tool_calls": ["initiate_return"],
+      "expected_keywords": ["RET-", "pickup", "refund", "5", "7"]
+    }
+  ]
+}

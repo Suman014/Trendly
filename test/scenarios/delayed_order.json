@@ -1,0 +1,17 @@
+{
+  "id": "delayed_order",
+  "description": "TR-4525: status=delayed. Agent must acknowledge frustration before citing ₹250 store credit policy (§1.5).",
+  "customer": { "name": "Diego Ramos", "email": "diego.ramos@example.com", "order_id": "TR-4525" },
+  "turns": [
+    {
+      "user": "My order TR-4525 was supposed to arrive weeks ago and it still hasn't shown up. This is really frustrating.",
+      "expected_tool_calls": [],
+      "expected_keywords": ["verify", "email", "phone"]
+    },
+    {
+      "user": "diego.ramos@example.com",
+      "expected_tool_calls": ["verify_customer", "get_order"],
+      "expected_keywords": ["apologize", "delayed", "250", "store credit"]
+    }
+  ]
+}

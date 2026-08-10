@@ -1,0 +1,17 @@
+{
+  "id": "partial_shipment",
+  "description": "TR-4524: partially shipped. Jeans shipped, belt on backorder. Agent must explain §1.4 — no extra shipping fee.",
+  "customer": { "name": "Ananya Rao", "email": "ananya.rao@example.com", "order_id": "TR-4524" },
+  "turns": [
+    {
+      "user": "I ordered jeans and a belt in order TR-4524. I got the jeans but not the belt. What's going on?",
+      "expected_tool_calls": [],
+      "expected_keywords": ["verify", "email", "phone"]
+    },
+    {
+      "user": "ananya.rao@example.com",
+      "expected_tool_calls": ["verify_customer", "get_order"],
+      "expected_keywords": ["backorder", "belt", "1.4", "no extra", "shipping"]
+    }
+  ]
+}

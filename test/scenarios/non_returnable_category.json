@@ -1,0 +1,17 @@
+{
+  "id": "non_returnable_category",
+  "description": "TR-4527: jewellery (Pearl Drop Earrings). Within 30 days BUT jewellery is non-returnable. Must refuse on category grounds (§2.3), NOT date grounds.",
+  "customer": { "name": "Priya Nair", "email": "priya.nair@example.com", "order_id": "TR-4527", "sku": "TR-EAR-042" },
+  "turns": [
+    {
+      "user": "I want to return the earrings from my order TR-4527.",
+      "expected_tool_calls": [],
+      "expected_keywords": ["verify", "email", "phone"]
+    },
+    {
+      "user": "priya.nair@example.com",
+      "expected_tool_calls": ["verify_customer", "check_eligibility"],
+      "expected_keywords": ["jewellery", "hygiene", "2.3", "cannot"]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "final_sale_exchange",
+  "description": "TR-4528: Oxford Shirt, final_sale=true. Must offer exchange only, no refund, citing §2.4.",
+  "customer": { "name": "Diego Ramos", "email": "diego.ramos@example.com", "order_id": "TR-4528", "sku": "TR-SHR-009" },
+  "turns": [
+    {
+      "user": "I want to return my Oxford Shirt from order TR-4528 and get a refund.",
+      "expected_tool_calls": [],
+      "expected_keywords": ["verify", "email", "phone"]
+    },
+    {
+      "user": "diego.ramos@example.com",
+      "expected_tool_calls": ["verify_customer", "check_eligibility"],
+      "expected_keywords": ["final sale", "exchange", "2.4", "refund"]
+    },
+    {
+      "user": "OK, I'll take an exchange then. I want size L.",
+      "expected_tool_calls": ["initiate_exchange"],
+      "expected_keywords": ["EXC-", "exchange", "size", "L"]
+    }
+  ]
+}

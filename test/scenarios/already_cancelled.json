@@ -1,0 +1,17 @@
+{
+  "id": "already_cancelled",
+  "description": "TR-4529: already cancelled with refund processed. Return request is nonsensical — agent must explain §2.6.",
+  "customer": { "name": "Ananya Rao", "email": "ananya.rao@example.com", "order_id": "TR-4529", "sku": "TR-SCF-027" },
+  "turns": [
+    {
+      "user": "I want to return the silk scarf from order TR-4529.",
+      "expected_tool_calls": [],
+      "expected_keywords": ["verify", "email", "phone"]
+    },
+    {
+      "user": "ananya.rao@example.com",
+      "expected_tool_calls": ["verify_customer", "check_eligibility"],
+      "expected_keywords": ["cancelled", "return", "cannot", "2.6"]
+    }
+  ]
+}

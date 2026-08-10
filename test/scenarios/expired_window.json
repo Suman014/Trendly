@@ -1,0 +1,17 @@
+{
+  "id": "expired_window",
+  "description": "TR-4523: delivered 2026-06-05. Well outside the 30-day return window. Must refuse citing §2.1.",
+  "customer": { "name": "Priya Nair", "email": "priya.nair@example.com", "order_id": "TR-4523", "sku": "TR-JKT-008" },
+  "turns": [
+    {
+      "user": "I want to return my order TR-4523, the Quilted Bomber Jacket.",
+      "expected_tool_calls": [],
+      "expected_keywords": ["verify", "email", "phone"]
+    },
+    {
+      "user": "priya.nair@example.com",
+      "expected_tool_calls": ["verify_customer", "check_eligibility"],
+      "expected_keywords": ["window", "expired", "30", "2.1"]
+    }
+  ]
+}
